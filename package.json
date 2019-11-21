@@ -1,0 +1,27 @@
+{
+  "name": "shareurexp-express-store-static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node express-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dingzhengru/shareurexp-express-store-static.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dingzhengru/shareurexp-express-store-static/issues"
+  },
+  "homepage": "https://github.com/dingzhengru/shareurexp-express-store-static#readme",
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "sharp": "^0.23.3",
+    "uuid": "^3.3.3"
+  }
+}
