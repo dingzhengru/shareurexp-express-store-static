@@ -83,16 +83,23 @@ app.post('/upload-image', (req, res) => {
 
     console.log('devurl', devUrl)
 
+    console.log(req.files['image'])
+
     if(!userId)
         res.status(500).send({ error: 'no user' });
     else {
         fs.mkdir(dirName, { recursive: true }, err => {
-            sharp(imgData)
-            .resize({ height: 900 })
-            .toFile(fullName)
-            .then(info => {
-                console.log(`save to ${fullName}`);
-                res.send(devUrl)
+            let image = sharp(imgData);
+            image.metadata()
+                 .then(metadata => {
+                // 高度大於900的才縮到900
+                if(metadata.height > 900)
+                    image.resize({ height: 900 })
+                image.toFile(fullName)
+                     .then(info => {
+                    console.log(`save to ${fullName}`);
+                    res.send(devUrl)
+                });
             });
         });
     }
